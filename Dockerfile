@@ -2,10 +2,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build-env
 
 WORKDIR /app
 
-COPY ["HealthCheckExampleApp.csproj", ""]
+COPY ["./HealthCheckExampleApp/HealthCheckExampleApp.csproj", ""]
 RUN dotnet restore "./HealthCheckExampleApp.csproj"
 
-COPY . .
+COPY ./HealthCheckExampleApp .
 
 RUN dotnet publish "HealthCheckExampleApp.csproj"  -c Release -o out
 
